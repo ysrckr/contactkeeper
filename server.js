@@ -5,12 +5,17 @@ const contacts = require('./routes/contacts')
 const conn = require('./config/db')
 
 
+
+
 // COnnect Database
 conn()
 
 
-
 const app = express()
+
+
+app.use(express.json({extended: false}))
+app.use(express.urlencoded({extended: false}))
 
 app.use('/api/users', users)
 app.use('/api/auth', auth)
